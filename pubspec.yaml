@@ -38,6 +38,19 @@ dependencies:
   cupertino_icons: ^1.0.2
   video_player: ^2.4.7
   carousel_slider: ^4.1.1
+  flutter_native_splash: ^2.2.13
+
+flutter_native_splash:
+  color: "#000000"
+  color_dark: "#000000"
+  image: img/imagess/logotiktok.png
+  image_dark: img/imagess/logotiktok.png
+
+  android_12:
+    icon_background_color: "#000000"
+    icon_background_color_dark: "#000000"
+    image: img/imagess/logotiktok.png
+    image_dark: img/imagess/logotiktok.png
 
 dev_dependencies:
   flutter_test:
@@ -63,7 +76,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-   - img/imagess/orange.jpeg
+   - img/imagess/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

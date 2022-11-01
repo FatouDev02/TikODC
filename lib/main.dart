@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:video_player/video_player.dart';
@@ -22,7 +24,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({super.key});
 
@@ -33,7 +34,6 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   int _selectedIndex = 0;
 
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -43,13 +43,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
-      ),
-      body: Center(
-        child: Center(child: Text('postv'),
-        ),
-      ),
+      body: HomePage(),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -61,7 +55,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'Search',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: ImageIcon(AssetImage(
+              'img/imagess/addbutton.png',
+            )),
             label: 'Add',
           ),
           BottomNavigationBarItem(
@@ -76,6 +72,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0XFF141518),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
@@ -84,3 +82,83 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 }
 
+class HomePage extends StatelessWidget {
+  // const HomePage({super.key});
+  HomePage({Key? key}) : super(key: key);
+  //on crée une var de type list qui va contenir des maps et toute nos infos
+  final List<Map> tiktokitems = [
+    {
+      "video": "img/videos/vid1.MOV",
+    },
+    {
+      "video": "img/videos/vid2.MOV",
+    },
+    {
+      "video": "img/videos/vid3.MOV",
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+      options: CarouselOptions(
+        //toute la hauteur
+        height: double.infinity,
+        scrollDirection: Axis.vertical,
+        //100% de l'espace
+        viewportFraction: 1.0,
+      ),
+      items: tiktokitems.map((item) {
+        return Builder(
+          builder: (BuildContext context) {
+            return Container(
+              color: const Color(0xFF141518),
+              child: Stack(
+                children: const [VideoWidget()],
+              ),
+              //color: item['color'],
+              // child: const Center(
+              //   child: Text('text'),
+              // ),
+              // width: MediaQuery.of(context).size.width,
+              // //  margin: EdgeInsets.symmetric(horizontal: 5.0),
+              // decoration: BoxDecoration(color: Colors.amber),
+              // child: Center(
+              //   child: Text(
+              //     'text $i',
+              //     style: TextStyle(fontSize: 16.0),
+              //   ),
+              //)
+            );
+          },
+        );
+      }).toList(),
+    );
+  }
+}
+
+class VideoWidget extends StatefulWidget {
+  const VideoWidget({super.key});
+
+  @override
+  State<VideoWidget> createState() => _VideoWidgetState();
+}
+
+class _VideoWidgetState extends State<VideoWidget> {
+  //late pour dire quon va l'initialiser apres
+  late VideoPlayerController _controller;
+  void initState() {
+    super.initState();
+
+    _controller = VideoPlayerController.asset('img/videos/vid1.MOV')
+      ..initialize().then((_) {
+        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+        setState(() {});
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return VideoPlayer(_controller);
+  }
+}
