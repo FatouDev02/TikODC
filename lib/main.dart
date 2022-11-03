@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter TikTok',
       //bande debug a ne pas afficher
       debugShowCheckedModeBanner: false,
+      // widget de la page home
       home: MyStatefulWidget(),
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tikodc/signup.dart';
 
 import 'inscription.dart';
 
@@ -32,7 +33,6 @@ class UserProfilPage extends StatelessWidget {
       body: Column(
         children: [
 
-
           //profile photo
           Container(
             height: 120,
@@ -40,7 +40,9 @@ class UserProfilPage extends StatelessWidget {
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
               color: Colors.grey[200],
+
             ),
+
           ),
 
           // nomUtilisateur
@@ -166,6 +168,7 @@ class UserProfilPage extends StatelessWidget {
                 
             ),
           ),
+
           // buttons -> edit profil, insta links
 
           // bio
@@ -180,7 +183,7 @@ class UserProfilPage extends StatelessWidget {
 
 //POPUP D'INSCRIPTION
 void _openPopup(context){
-  showModalBottomSheet(
+      showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
@@ -241,7 +244,8 @@ void _openPopup(context){
                             )
                         ),),
                         onPressed: () => {
-                        Navigator.of(context).push(MaterialPageRoute(builder:  (context) => const inscription(),
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder:  (context) => const inscription(),
                         ),
                         ),
                         },
@@ -255,13 +259,13 @@ void _openPopup(context){
                               Expanded(
                                 flex: 1,
                                 child: FaIcon(
-                                    FontAwesomeIcons.user
+                                    FontAwesomeIcons.userGraduate
                                 ),
                               ),
                               Expanded(
                                 flex: 2,
                                 child: Text(
-                                  "Utiliser téléphone/e-mail/nom d’utilisateur",
+                                  "Utiliser téléphone /e-mail/nom d’utilisateur",
                                   style: TextStyle(
                                       fontSize: 15.0,
                                       color: Colors.black87
@@ -545,7 +549,12 @@ void _openPopupConnect(context){
                                 width: 0.5
                             )
                         ),),
-                        onPressed: () => {},
+                        onPressed: () => {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder:  (context) => const signup(),
+                          ),
+                          ),
+                        },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(

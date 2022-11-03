@@ -4,8 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:tikodc/login.dart';
 import 'package:tikodc/profil.dart';
+import 'package:tikodc/renitialiser.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:math' as math;
+
+import 'creernewpassword.dart';
+import 'otp.dart';
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({super.key});
@@ -22,11 +26,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       _selectedIndex = index;
     });
   }
-
+//liste des différentes pages
   final List<Widget> _pagesfc = [
     HomePage(),
-    Text("Accueil"),
-    Text("Accueil"),
+    Newpassword(),
+    createnewpassword(),
     Loginpage(),
     UserProfilPage(),
 
@@ -34,11 +38,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
+    //Scafold wid principal
     return Scaffold(
       body: _pagesfc[_selectedIndex],
+      //btn de navigation
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        //pour l'icon selectionner
         currentIndex: _selectedIndex,
+        //cette fonstion s'execute
         onTap: _onItemTapped,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -89,7 +97,7 @@ class HomePage extends StatelessWidget {
       "video": "img/videos/vid3.mp4",
     },
     {
-      "video": "img/videos/vid1.mp4",
+      "video": "img/videos/vid4.mp4",
     },
     {
       "video": "img/videos/vid2.mp4",
@@ -102,10 +110,12 @@ class HomePage extends StatelessWidget {
       options: CarouselOptions(
         //toute la hauteur
         height: double.infinity,
+        //scroller verticalement
         scrollDirection: Axis.vertical,
         //100% de l'espace
         viewportFraction: 1.0,
       ),
+      //pour chaque elt de la liste d'item(tiktokitems)
       items: tiktokitems.map((item) {
         return Builder(
           builder: (BuildContext context) {
@@ -114,25 +124,14 @@ class HomePage extends StatelessWidget {
               child: Stack(
                 children: [
                   VideoWidget(
+                    //la video selectionner est attribué  video url dans video widget
                     videoUrl: item['video'],
                   ),
+                  //appel de cette fonction pour afficher les inf du post
                   const PostContent()
                 ],
               ),
 
-              //color: item['color'],
-              // child: const Center(
-              //   child: Text('text'),
-              // ),
-              // width: MediaQuery.of(context).size.width,
-              // //  margin: EdgeInsets.symmetric(horizontal: 5.0),
-              // decoration: BoxDecoration(color: Colors.amber),
-              // child: Center(
-              //   child: Text(
-              //     'text $i',
-              //     style: TextStyle(fontSize: 16.0),
-              //   ),
-              //)
             );
           },
         );
@@ -143,7 +142,7 @@ class HomePage extends StatelessWidget {
 
 class VideoWidget extends StatefulWidget {
   // const VideoWidget({Key? key, required this.videoUrl}) : super(key: key);
-
+// ce wid prens l video selctionner dans videoUrl
   const VideoWidget({super.key, required this.videoUrl});
   final String videoUrl;
 
@@ -152,11 +151,11 @@ class VideoWidget extends StatefulWidget {
 }
 
 class _VideoWidgetState extends State<VideoWidget> {
-  //late pour dire quon va l'initialiser apres
+  //late pour dire quon va l'initialiser apres sinon ........
   late VideoPlayerController _controller;
   final String videoUrl;
   _VideoWidgetState(this.videoUrl);
-
+//initialisation
   void initState() {
     super.initState();
 
@@ -180,7 +179,7 @@ class PostContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //une collonne avec é child
+    //une collonne avec 2 child
     return Column(
       children: [
         Container(
@@ -221,7 +220,7 @@ class PostContent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '@extremesports_95',
+                          '@Orange digital center',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
@@ -229,27 +228,29 @@ class PostContent extends StatelessWidget {
                         ),
                         SizedBox(height: 10),
                         Text(
-                          'Goein full send in Squaw Valley. #snow @snowboarding # extremesports #sendit #winter',
+                          'innovation creativite centre de formation numérique',
                           style: TextStyle(
                             color: Colors.white,
                           ),
                         ),
-                        SizedBox(height: 10),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.music_note,
-                              color: Colors.white,
-                              size: 15,
-                            ),
-                            SizedBox(width: 5),
-                            Text(
-                              'Original Sound - extremesports_95',
-                              style: TextStyle(
+                        // SizedBox(height: 10),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.music_note,
                                 color: Colors.white,
+                                size: 15,
                               ),
-                            ),
-                          ],
+                              SizedBox(width: 5),
+                              Text(
+                                'Son Original - voix-off',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
                         )
                       ],
                     ),
@@ -325,7 +326,7 @@ class PostContent extends StatelessWidget {
                               size: 45,
                             ),
                             Text(
-                              '156',
+                              '156k',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -345,7 +346,7 @@ class PostContent extends StatelessWidget {
                               size: 45,
                             ),
                             Text(
-                              '123',
+                              '12k',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
@@ -380,12 +381,12 @@ class _AnimatedLogoState extends State<AnimatedLogo>
   late AnimationController _controller;
   @override
   void initState() {
-    //intitiaalisation du controller pour effectuer la transition
+    //intitialisation du controller pour effectuer la transition
     _controller = AnimationController(
       duration: const Duration(milliseconds: 4000),
       vsync: this,
     );
-    //repeat l'nimation pres l durée definis
+    //repeat l'animation pres l durée definis
     _controller.repeat();
     super.initState();
   }
