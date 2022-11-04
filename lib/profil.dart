@@ -22,150 +22,141 @@ class UserProfilPage extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 12.0),
-            child: Icon(
-                Icons.menu,
-                color: Colors.black
-            ),
+            child: Icon(Icons.menu, color: Colors.black),
           )
         ],
       ),
       backgroundColor: Colors.white,
       body: Column(
         children: [
-
           //profile photo
           Container(
             height: 120,
             width: 120,
             decoration: BoxDecoration(
-                shape: BoxShape.circle,
+              shape: BoxShape.circle,
               color: Colors.grey[200],
-
             ),
-
           ),
 
           // nomUtilisateur
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text("@nomd'utilisateur",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20
-                ),
-              ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Text(
+              "@nomd'utilisateur",
+              style: TextStyle(color: Colors.black, fontSize: 20),
             ),
+          ),
 
           // numbre de followers, likes
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.centerRight,
-                      child: Column(
-                        children: [
-                      Text('0',
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment.centerRight,
+                  child: Column(
+                    children: [
+                      Text(
+                        '0',
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
-                            fontSize: 15
+                            fontSize: 15),
+                      ),
+                      Text(
+                        'Suivis',
+                        style: TextStyle(
+                          color: Colors.black,
                         ),
                       ),
-                      Text('Suivis',
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        '0',
                         style: TextStyle(
                             color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                      Text(
+                        'Followers',
+                        style: TextStyle(
+                          color: Colors.black,
                         ),
                       ),
-                        ],
-                      ),
-                    ),
+                    ],
                   ),
-                  Expanded(
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Text('0',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15
-                            ),
-                          ),
-                          Text('Followers',
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Column(
-                        children: [
-                          Text('0',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Text("J'aime",
-                            style: TextStyle(
-                              color: Colors.black,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                ],
+                ),
               ),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Column(
+                    children: [
+                      Text(
+                        '0',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "J'aime",
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
           SizedBox(
             height: 80,
           ),
 
-      Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const SizedBox(width: 20.0, height: 100.0),
-          DefaultTextStyle(
-            style: const TextStyle(
-              fontSize: 25.0,
-              fontFamily: 'Horizon',
-            ),
-            child: AnimatedTextKit(
-              animatedTexts: [
-                RotateAnimatedText('Retrouve tes favorites'),
-                RotateAnimatedText('Consulte tes suivis'),
-                RotateAnimatedText('Exprime ta créativité'),
-              ],
-
-            ),
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const SizedBox(width: 20.0, height: 100.0),
+              DefaultTextStyle(
+                style: const TextStyle(
+                  fontSize: 25.0,
+                  fontFamily: 'Horizon',
+                ),
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    RotateAnimatedText('Retrouve tes favorites'),
+                    RotateAnimatedText('Consulte tes suivis'),
+                    RotateAnimatedText('Exprime ta créativité'),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
           SizedBox(
             width: 300.0,
             height: 40,
-            child: Builder( builder: (context) => ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.red,
-                         onPrimary: Colors.white),
-                    onPressed: () {
-                      _openPopup(context);
-                    },
-                    // color: Colors.red[400],
-                    // textColor: Colors.white,
-                    child: Text('Connecte-toi ou inscris-toi'),
-                  ),
-             
-                
+            child: Builder(
+              builder: (context) => ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.red, onPrimary: Colors.white),
+                onPressed: () {
+                  _openPopup(context);
+                },
+                // color: Colors.red[400],
+                // textColor: Colors.white,
+                child: Text('Connecte-toi ou inscris-toi'),
+              ),
             ),
           ),
 
@@ -174,7 +165,6 @@ class UserProfilPage extends StatelessWidget {
           // bio
 
           // default tab controller
-
         ],
       ),
     );
@@ -182,12 +172,12 @@ class UserProfilPage extends StatelessWidget {
 }
 
 //POPUP D'INSCRIPTION
-void _openPopup(context){
-      showModalBottomSheet(
+void _openPopup(context) {
+  showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-      builder: (BuildContext bc){
+      builder: (BuildContext bc) {
         return Container(
             height: MediaQuery.of(context).size.height * .95,
             child: Padding(
@@ -205,13 +195,9 @@ void _openPopup(context){
                         Icon(Icons.more, color: Colors.black),
                       ],
                     ),
-
                     Text(
                       "Inscription à TikTok",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black
-                      ),
+                      style: TextStyle(fontSize: 25, color: Colors.black),
                     ),
                     SizedBox(
                       height: 10.0,
@@ -220,11 +206,8 @@ void _openPopup(context){
                       padding: const EdgeInsets.fromLTRB(18.0, 0.0, 18.0, 0.0),
                       child: Text(
                         "Crée un profil, abonne-toi à d’autres comptes, "
-                            "crée tes propres vidéos et bien plus encore.",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black54
-                        ),
+                        "crée tes propres vidéos et bien plus encore.",
+                        style: TextStyle(fontSize: 16, color: Colors.black54),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -235,23 +218,21 @@ void _openPopup(context){
                       minWidth: 250.0,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         onPressed: () => {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder:  (context) => const inscription(),
-                        ),
-                        ),
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const inscription(),
+                            ),
+                          ),
                         },
-                      
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -259,7 +240,8 @@ void _openPopup(context){
                               Expanded(
                                 flex: 1,
                                 child: FaIcon(
-                                    FontAwesomeIcons.userGraduate
+                                  FontAwesomeIcons.user,
+                                  color: Colors.black,
                                 ),
                               ),
                               Expanded(
@@ -267,9 +249,7 @@ void _openPopup(context){
                                 child: Text(
                                   "Utiliser téléphone /e-mail/nom d’utilisateur",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
                             ],
@@ -284,17 +264,15 @@ void _openPopup(context){
                       minWidth: 250.0,
                       child: ElevatedButton(
                         onPressed: () => {},
-                            style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -311,9 +289,7 @@ void _openPopup(context){
                                 child: Text(
                                   "Continuer avec Facebook",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
                             ],
@@ -328,17 +304,15 @@ void _openPopup(context){
                       minWidth: 250.0,
                       child: ElevatedButton(
                         onPressed: () => {},
-                           style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -355,9 +329,7 @@ void _openPopup(context){
                                 child: Text(
                                   "Continuer avec Google",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
                             ],
@@ -372,17 +344,15 @@ void _openPopup(context){
                       minWidth: 250.0,
                       child: ElevatedButton(
                         onPressed: () => {},
-                         style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -399,17 +369,13 @@ void _openPopup(context){
                                 child: Text(
                                   "Continuer avec Twitter",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
                       ),
-
                     ),
                     SizedBox(
                       height: 15.0,
@@ -418,17 +384,15 @@ void _openPopup(context){
                       minWidth: 250.0,
                       child: ElevatedButton(
                         onPressed: () => {},
-                           style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -445,17 +409,13 @@ void _openPopup(context){
                                 child: Text(
                                   "Continuer avec Instagram",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
                       ),
-
                     ),
                     SizedBox(
                       height: 90.0,
@@ -463,7 +423,7 @@ void _openPopup(context){
                     RichText(
                       text: TextSpan(
                         text: "Tu as déjà un compte ? ",
-                        style: TextStyle( color: Colors.black),
+                        style: TextStyle(color: Colors.black),
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Connexion ',
@@ -480,19 +440,17 @@ void _openPopup(context){
                   ],
                 ),
               ),
-            )
-        );
-      }
-  );
+            ));
+      });
 }
 
 //POPUP DE CONNEXION
-void _openPopupConnect(context){
+void _openPopupConnect(context) {
   showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.white,
-      builder: (BuildContext bc){
+      builder: (BuildContext bc) {
         return Container(
             height: MediaQuery.of(context).size.height * .95,
             child: Padding(
@@ -503,7 +461,8 @@ void _openPopupConnect(context){
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        GestureDetector(onTap: () => Navigator.pop(context),
+                        GestureDetector(
+                          onTap: () => Navigator.pop(context),
                           child: Icon(Icons.close, color: Colors.black),
                         ),
                         Icon(Icons.more, color: Colors.black),
@@ -514,10 +473,7 @@ void _openPopupConnect(context){
                     ),
                     Text(
                       "Connecte-toi à TikTok",
-                      style: TextStyle(
-                        fontSize: 25,
-                        color: Colors.black
-                      ),
+                      style: TextStyle(fontSize: 25, color: Colors.black),
                     ),
                     SizedBox(
                       height: 10.0,
@@ -526,11 +482,8 @@ void _openPopupConnect(context){
                       padding: const EdgeInsets.fromLTRB(18.0, 0.0, 18.0, 0.0),
                       child: Text(
                         "Gère ton compte, consulte les notifications, "
-                            "commente des vidéos et bien plus encore.",
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black54
-                        ),
+                        "commente des vidéos et bien plus encore.",
+                        style: TextStyle(fontSize: 16, color: Colors.black54),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -540,23 +493,22 @@ void _openPopupConnect(context){
                     ButtonTheme(
                       minWidth: 250.0,
                       child: ElevatedButton(
-                         style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         onPressed: () => {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder:  (context) => const signup(),
-                          ),
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const signup(),
+                            ),
                           ),
                         },
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -564,7 +516,8 @@ void _openPopupConnect(context){
                               Expanded(
                                 flex: 1,
                                 child: FaIcon(
-                                    FontAwesomeIcons.user
+                                  FontAwesomeIcons.user,
+                                  color: Colors.black,
                                 ),
                               ),
                               Expanded(
@@ -572,9 +525,7 @@ void _openPopupConnect(context){
                                 child: Text(
                                   "Utiliser téléphone/e-mail/nom d’utilisateur",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
                             ],
@@ -589,17 +540,15 @@ void _openPopupConnect(context){
                       minWidth: 250.0,
                       child: ElevatedButton(
                         onPressed: () => {},
-                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -616,9 +565,7 @@ void _openPopupConnect(context){
                                 child: Text(
                                   "Continuer avec Facebook",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
                             ],
@@ -633,17 +580,15 @@ void _openPopupConnect(context){
                       minWidth: 250.0,
                       child: ElevatedButton(
                         onPressed: () => {},
-                         style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -660,9 +605,7 @@ void _openPopupConnect(context){
                                 child: Text(
                                   "Continuer avec Google",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
                             ],
@@ -678,16 +621,14 @@ void _openPopupConnect(context){
                       child: ElevatedButton(
                         onPressed: () => {},
                         style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -704,17 +645,13 @@ void _openPopupConnect(context){
                                 child: Text(
                                   "Continuer avec Twitter",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
                       ),
-
                     ),
                     SizedBox(
                       height: 15.0,
@@ -724,16 +661,14 @@ void _openPopupConnect(context){
                       child: ElevatedButton(
                         onPressed: () => {},
                         style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
-                         onPrimary: Colors.white,
-                         shape: RoundedRectangleBorder(
-                            side: BorderSide(
-                                color: Colors.grey,
-                                width: 0.5
-                            )
-                        ),),
+                          primary: Colors.white,
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              side: BorderSide(color: Colors.grey, width: 0.5)),
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
@@ -750,17 +685,13 @@ void _openPopupConnect(context){
                                 child: Text(
                                   "Continuer avec Instagram",
                                   style: TextStyle(
-                                      fontSize: 15.0,
-                                      color: Colors.black87
-                                  ),
+                                      fontSize: 15.0, color: Colors.black87),
                                 ),
                               ),
-
                             ],
                           ),
                         ),
                       ),
-
                     ),
                     SizedBox(
                       height: 90.0,
@@ -768,7 +699,7 @@ void _openPopupConnect(context){
                     RichText(
                       text: TextSpan(
                         text: "Tu n'as pas de compte ? ",
-                        style: TextStyle( color: Colors.black),
+                        style: TextStyle(color: Colors.black),
                         children: <TextSpan>[
                           TextSpan(
                               text: 'Inscription ',
@@ -778,16 +709,13 @@ void _openPopupConnect(context){
                                 },
                               style: TextStyle(
                                 color: Colors.red,
-                              )
-                          ),
+                              )),
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
-            )
-        );
-      }
-  );
+            ));
+      });
 }

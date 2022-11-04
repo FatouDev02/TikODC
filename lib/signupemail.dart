@@ -16,11 +16,13 @@ class signupmail extends StatelessWidget {
     return Scaffold(
       body: Container(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(8.0,20.0, 20.0,5.0),
-          child: Column(children:<Widget> [
-
+          padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
+          child: Column(children: <Widget>[
             SizedBox(
-              height: 50,
+              height: 10.0,
+            ),
+            SizedBox(
+              height: 100,
               width: 300,
               child: TextFormField(
                 decoration: const InputDecoration(hintText: "Adresse mail"),
@@ -29,9 +31,11 @@ class signupmail extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
             ),
-
             SizedBox(
-              height: 50,
+              height: 10.0,
+            ),
+            SizedBox(
+              height: 100,
               width: 300,
               child: TextFormField(
                 decoration: const InputDecoration(hintText: "Mot de passe "),
@@ -41,46 +45,47 @@ class signupmail extends StatelessWidget {
                 obscureText: true,
                 enableSuggestions: false,
                 autocorrect: false,
-
-
               ),
             ),
-
+            SizedBox(
+              height: 20.0,
+            ),
             SizedBox(
               width: 200.0,
               height: 40,
-              child: Builder( builder: (context) => ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Colors.redAccent,
-                    onPrimary: Colors.white),
-                onPressed: () => {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder:  (context) =>  MyStatefulWidget(),
-                  ),
-                  ),
-                },
-
-                child: Text('Connexion'),
-              ),
-
-
+              child: Builder(
+                builder: (context) => ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Colors.redAccent, onPrimary: Colors.white),
+                  onPressed: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => MyStatefulWidget(),
+                      ),
+                    ),
+                  },
+                  child: Text('Connexion'),
+                ),
               ),
             ),
             SizedBox(
-              height: 10.0,
+              height: 30.0,
             ),
-
             RichText(
               text: TextSpan(
                 text: 'Mot de passe oublié!!! ',
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    const Newpassword();
-                  },
-                style: TextStyle( color: Colors.black,
+                  ..onTap = () => {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const Newpassword(),
+                          ),
+                        ),
+                      },
+                style: TextStyle(
+                  color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-
                 ),
                 // children: <TextSpan>[
                 //   TextSpan(
@@ -100,7 +105,6 @@ class signupmail extends StatelessWidget {
           ]),
         ),
       ),
-
     );
   }
 }

@@ -26,7 +26,7 @@ class inscription extends StatelessWidget {
         ),
         body: Container(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
+            padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 20.0),
             child: Column(
                 children: [
               Row(
@@ -34,7 +34,7 @@ class inscription extends StatelessWidget {
                 children: [
                     Column(
                       children: [
-                        Text('Quelle est \n ta date de naissance?',
+                        Text('Quelle est  ta date de naissance?',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,
@@ -46,7 +46,12 @@ class inscription extends StatelessWidget {
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,
-                             ))
+                              
+                             ), 
+                             textAlign: TextAlign.justify,
+
+
+                             )
                       ],
                     ),
 
@@ -64,7 +69,7 @@ class inscription extends StatelessWidget {
                     height: 10,
                   ),
                   SizedBox(
-                    height: 300,
+                    height: 100,
                     width: 300,
                     child: TextFormField(
 

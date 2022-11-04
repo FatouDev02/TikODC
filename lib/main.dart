@@ -7,9 +7,11 @@ import 'package:tikodc/home.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:math' as math;
 
-void main() {
+void main() async {
   // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  await Future.delayed(const Duration(milliseconds: 200));
+
   runApp(const MyApp());
 }
 

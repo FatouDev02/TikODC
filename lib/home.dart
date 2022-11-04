@@ -19,13 +19,21 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  bool _isPourtoiSelected = true;
+  bool _homepage = true;
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (index == 0) {
+        _homepage = true;
+      } else {
+        _homepage = false;
+      }
     });
   }
+
 //liste des différentes pages
   final List<Widget> _pagesfc = [
     HomePage(),
@@ -33,22 +41,72 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     createnewpassword(),
     Loginpage(),
     UserProfilPage(),
-
   ];
 
   @override
   Widget build(BuildContext context) {
     //Scafold wid principal
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () => {},
+          icon: Icon(
+            Icons.live_tv_rounded,
+            color: Colors.white,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () => {},
+            icon: Icon(Icons.search_rounded),
+          )
+        ],
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            GestureDetector(
+              onTap: () => {
+                setState(() {
+                  _isPourtoiSelected = false;
+                })
+              },
+              child: Text(
+                _homepage ? "Abonnements" : "",
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    fontSize: !_isPourtoiSelected ? 18 : 15,
+                    color: !_isPourtoiSelected ? Colors.white : Colors.grey),
+              ),
+            ),
+            Text("    "),
+            GestureDetector(
+              onTap: () => {
+                setState(() {
+                  _isPourtoiSelected = true;
+                })
+              },
+              child: Text(
+                _homepage ? "Pour toi" : "",
+                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    fontSize: _isPourtoiSelected ? 18 : 15,
+                    color: _isPourtoiSelected ? Colors.white : Colors.grey),
+              ),
+            ),
+          ],
+        ),
+      ),
       body: _pagesfc[_selectedIndex],
       //btn de navigation
-      bottomNavigationBar:   BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         //pour l'icon selectionner
         currentIndex: _selectedIndex,
         //cette fonction s'execute
         onTap: _onItemTapped,
-        items:  <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -58,12 +116,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             label: 'Search',
           ),
 
-           BottomNavigationBarItem(
-            icon: Image.asset(
+          BottomNavigationBarItem(
+              icon: Image.asset(
                 "img/imagess/tiktok_add.png",
-              height: 35,
-            ),label: 'Add'
-        ),
+                height: 35,
+              ),
+              label: 'Add'),
 
           // BottomNavigationBarItem(
           //   icon:
@@ -141,7 +199,6 @@ class HomePage extends StatelessWidget {
                   const PostContent()
                 ],
               ),
-
             );
           },
         );
@@ -195,26 +252,6 @@ class PostContent extends StatelessWidget {
         Container(
           height: 100,
           padding: EdgeInsets.only(top: 40),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Following',
-                style: TextStyle(
-                  color: Colors.white54,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(width: 20),
-              Text(
-                'For you',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
-          ),
         ),
         Expanded(
           child: Container(
@@ -222,7 +259,6 @@ class PostContent extends StatelessWidget {
               children: [
                 Expanded(
                   child: Container(
-
                     padding: EdgeInsets.all(10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -243,7 +279,7 @@ class PostContent extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                         SizedBox(height: 10),
+                        SizedBox(height: 10),
                         Row(
                           children: [
                             Icon(
@@ -258,11 +294,8 @@ class PostContent extends StatelessWidget {
                                 color: Colors.white,
                               ),
                             ),
-
                           ],
-
                         ),
-
                       ],
                     ),
                   ),
@@ -352,11 +385,22 @@ class PostContent extends StatelessWidget {
                         height: 80,
                         child: Column(
                           children: [
-                            Icon(
-                              Icons.comment,
+                            //   Image.asset(
+                            //     "img/imagess/favorites.png",
+                            //   height: 35,
+                            // ),
+                            Image(
+                              image: AssetImage("img/imagess/favorites.png"),
                               color: Colors.white.withOpacity(0.85),
-                              size: 45,
+                              height: 30,
+                              width: 30,
                             ),
+
+                            // Icon(
+                            //   Icons.comment,
+                            //   color: Colors.white.withOpacity(0.85),
+                            //   size: 45,
+                            // ),
                             Text(
                               '156k',
                               style: TextStyle(
