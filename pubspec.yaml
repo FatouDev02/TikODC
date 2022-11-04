@@ -47,14 +47,14 @@ dependencies:
 flutter_native_splash:
   color: "#000000"
   color_dark: "#000000"
-  image: img/imagess/logotiktok.png
-  image_dark: img/imagess/logotiktok.png
+  image: img/imagess/mytik.png
+  image_dark: img/imagess/mytik.png
 
   android_12:
     icon_background_color: "#000000"
     icon_background_color_dark: "#000000"
-    image: img/imagess/logotiktok.png
-    image_dark: img/imagess/logotiktok.png
+    image: img/imagess/mytik.png
+    image_dark: img/imagess/mytik.png
 
 dev_dependencies:
   flutter_test:

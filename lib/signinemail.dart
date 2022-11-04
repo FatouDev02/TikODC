@@ -32,8 +32,22 @@ class signinmail extends StatelessWidget {
 
               ),
             ),
+
             SizedBox(
-              height: 30.0,
+              height: 10.0,
+            ),
+            Padding(padding: const EdgeInsets.fromLTRB(18.0, 10.0, 10.0, 20.0),
+              child: Text("Reçois du contenu tendance, des newsletters, des promotions, \n des recommandations et des mises à jour du compte par e-mail \n Ton numéro de téléphone servira à améliorer ton expérience sur TikODC, notamment en te mettant en relation \n avec des personnes que tu connais peut-être, en personnalisant tes publicités, \n etc."
+                  " Si tu t'inscris par SMS, des frais peuvent s'appliquer.",
+                style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black54
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
             ),
             Padding(padding: const EdgeInsets.fromLTRB(18.0, 10.0, 10.0, 20.0),
               child: Text(

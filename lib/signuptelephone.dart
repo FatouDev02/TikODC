@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:tikodc/signupemail.dart';
 class signuptel extends StatelessWidget {
   const signuptel({Key? key}) : super(key: key);
@@ -18,22 +19,30 @@ class signuptel extends StatelessWidget {
             ),
 
 
-            SizedBox(
-              height: 300,
-              width: 300,
-              child: TextFormField(
+            IntlPhoneField(
+              decoration: InputDecoration(
+                hintText: "Numero de téléphone",
+                hintStyle: TextStyle(
+                  color: Colors.black12,
 
-                decoration: const InputDecoration(hintText: "Numéro de téléphone "),
-                style: Theme.of(context).textTheme.headline5,
-                keyboardType: TextInputType.number,
-                textAlign: TextAlign.justify,
-                inputFormatters: [LengthLimitingTextInputFormatter(8),
-                  FilteringTextInputFormatter.digitsOnly],
-
+                ),
               ),
+              style: Theme.of(context).textTheme.headline5,
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.justify,
+              inputFormatters: [LengthLimitingTextInputFormatter(8),
+                FilteringTextInputFormatter.digitsOnly],
+
+              onChanged: (phone) {
+                print(phone.completeNumber);
+              },
+              onCountryChanged: (country) {
+                print('Country changed to: ' + country.name);
+              },
+
             ),
             SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
 
             SizedBox(

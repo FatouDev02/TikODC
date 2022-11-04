@@ -61,34 +61,23 @@ class inscription extends StatelessWidget {
                 ],
               ),
                   SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    height: 200,
-                    child: CupertinoDatePicker(
-                      mode: CupertinoDatePickerMode.date,
-                      initialDateTime: DateTime(2000, 1, 1),
-                      onDateTimeChanged: (DateTime newDateTime) {
-                        // Do something
-                      },
-                    ),
+                    height: 10,
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 300,
+                    width: 300,
+                    child: TextFormField(
+
+                      decoration: const InputDecoration(hintText: "Date de naissance "),
+                      style: Theme.of(context).textTheme.headline5,
+                      //keyboardType: TextInputType.datetime,
+                      textAlign: TextAlign.justify,
+
+                      // inputFormatters: [LengthLimitingTextInputFormatter(8),
+                      //   FilteringTextInputFormatter.digitsOnly],
+
+                    ),
                   ),
-                  // SizedBox(
-                  //   height: 300,
-                  //   width: 300,
-                  //   child: TextFormField(
-                  //     decoration: const InputDecoration(hintText: "date de naissance "),
-                  //     style: Theme.of(context).textTheme.headline5,
-                  //     keyboardType: TextInputType.datetime,
-                  //     textAlign: TextAlign.justify,
-                  //     // inputFormatters: [LengthLimitingTextInputFormatter(8),
-                  //     //   FilteringTextInputFormatter.digitsOnly],
-                  //   ),
-                  // ),
-                  // SizedBox(height: 20,),
                   SizedBox(
                     width: 300.0,
                     height: 40,
@@ -107,6 +96,22 @@ class inscription extends StatelessWidget {
                     ),
                     ),
                   ),
+
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 200,
+                    child: CupertinoDatePicker(
+                      mode: CupertinoDatePickerMode.date,
+                      initialDateTime: DateTime(2000, 1, 1),
+                      onDateTimeChanged: (DateTime newDateTime) {
+                        // Do something
+                      },
+                    ),
+                  ),
+
+
 
             ]
             ),

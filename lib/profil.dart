@@ -778,7 +778,8 @@ void _openPopupConnect(context){
                                 },
                               style: TextStyle(
                                 color: Colors.red,
-                              )),
+                              )
+                          ),
                         ],
                       ),
                     ),

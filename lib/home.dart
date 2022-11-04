@@ -42,32 +42,42 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return Scaffold(
       body: _pagesfc[_selectedIndex],
       //btn de navigation
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:   BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         //pour l'icon selectionner
         currentIndex: _selectedIndex,
-        //cette fonstion s'execute
+        //cette fonction s'execute
         onTap: _onItemTapped,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
+        items:  <BottomNavigationBarItem>[
+          const BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
           ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(
-              'img/imagess/addbutton.png',
-            )),
-            label: 'Add',
-          ),
-          BottomNavigationBarItem(
+
+           BottomNavigationBarItem(
+            icon: Image.asset(
+                "img/imagess/tiktok_add.png",
+              height: 35,
+            ),label: 'Add'
+        ),
+
+          // BottomNavigationBarItem(
+          //   icon:
+          //   ImageIcon(AssetImage(
+          //     'img/imagess/addbutton.png',
+
+          //   )),
+          //   label: 'Add',
+          // ),
+          const BottomNavigationBarItem(
             icon: Icon(Icons.comment_outlined),
             label: 'Comment',
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
             label: 'Profil',
           ),
@@ -212,7 +222,7 @@ class PostContent extends StatelessWidget {
               children: [
                 Expanded(
                   child: Container(
-                    //
+
                     padding: EdgeInsets.all(10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -233,25 +243,26 @@ class PostContent extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
-                        // SizedBox(height: 10),
-                        Expanded(
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.music_note,
+                         SizedBox(height: 10),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.music_note,
+                              color: Colors.white,
+                              size: 15,
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'Original Sound - extremesports_95',
+                              style: TextStyle(
                                 color: Colors.white,
-                                size: 15,
                               ),
-                              SizedBox(width: 5),
-                              Text(
-                                'Son Original - voix-off',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
+                            ),
+
+                          ],
+
+                        ),
+
                       ],
                     ),
                   ),
@@ -336,6 +347,28 @@ class PostContent extends StatelessWidget {
                           ],
                         ),
                       ),
+                      ////////////////fav icon
+                      Container(
+                        height: 80,
+                        child: Column(
+                          children: [
+                            Icon(
+                              Icons.comment,
+                              color: Colors.white.withOpacity(0.85),
+                              size: 45,
+                            ),
+                            Text(
+                              '156k',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+
                       Container(
                         height: 80,
                         child: Column(
